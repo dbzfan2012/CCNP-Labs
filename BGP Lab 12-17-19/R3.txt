@@ -1,0 +1,186 @@
+!
+! Last configuration change at 14:11:07 UTC Wed Jan 15 2003
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R3
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+memory-size iomem 10
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+ip cef
+ipv6 unicast-routing
+ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CISCO2901/K9 sn FTX1520806V
+license accept end user agreement
+license boot module c2900 technology-package securityk9
+license boot module c2900 technology-package uck9
+!
+!
+vtp domain cisco
+vtp mode transparent
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ ip address 192.168.5.4 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address FE80::3 link-local
+ ipv6 address 2001:DB8:E::4/64
+ ipv6 eigrp 100
+!
+interface GigabitEthernet0/1
+ ip address 192.168.3.5 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address FE80::3 link-local
+ ipv6 address 2001:DB8:C::5/64
+ ipv6 eigrp 100
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface GigabitEthernet0/1/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+!
+!
+router eigrp 100
+ network 192.168.5.0
+ redistribute bgp 2 metric 100 1 255 1 1500
+ eigrp router-id 3.3.3.3
+!
+router bgp 2
+ bgp router-id 3.3.3.3
+ bgp log-neighbor-changes
+ neighbor 2001:DB8:C::1 remote-as 1
+ neighbor 2001:DB8:C::7 remote-as 3
+ neighbor 192.168.3.1 remote-as 1
+ neighbor 192.168.3.7 remote-as 3
+ !
+ address-family ipv4
+  network 192.168.3.0
+  redistribute eigrp 100
+  no neighbor 2001:DB8:C::1 activate
+  no neighbor 2001:DB8:C::7 activate
+  neighbor 192.168.3.1 activate
+  neighbor 192.168.3.7 activate
+ exit-address-family
+ !
+ address-family ipv6
+  redistribute eigrp 100
+  network 2001:DB8:C::/64
+  neighbor 2001:DB8:C::1 activate
+  neighbor 2001:DB8:C::7 activate
+ exit-address-family
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+ipv6 router eigrp 100
+ eigrp router-id 3.3.3.3
+ redistribute bgp 2 metric 100 1 255 1 1500
+!
+!
+!
+!
+control-plane
+!
+ !
+ !
+ !
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+!
+line con 0
+ password cisco
+ login
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+!
+end

@@ -1,0 +1,154 @@
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R7
+!
+boot-start-marker
+boot-end-marker
+!
+logging message-counter syslog
+!
+no aaa new-model
+memory-size iomem 10
+!
+dot11 syslog
+ip source-route
+!
+!
+ip cef
+!
+!
+ipv6 unicast-routing
+ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+ no dspfarm
+!
+!
+!
+!
+!
+vtp domain cisco
+vtp mode transparent
+archive
+ log config
+  hidekeys
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.8.1 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address FE80::7 link-local
+ ipv6 address 2001:DB8:ACAD:B::1/64
+ ipv6 ospf 1 area 2
+!
+interface FastEthernet0/1
+ ip address 192.168.7.2 255.255.255.0
+ duplex auto
+ speed auto
+ ipv6 address FE80::7 link-local
+ ipv6 address 2001:DB8:ACAD:A::2/64
+ ipv6 ospf 1 area 2
+!
+interface FastEthernet0/3/0
+!
+interface FastEthernet0/3/1
+!
+interface FastEthernet0/3/2
+!
+interface FastEthernet0/3/3
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ no fair-queue
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Vlan1
+ no ip address
+!
+router ospf 1
+ router-id 7.7.7.7
+ log-adjacency-changes
+ network 192.168.7.0 0.0.0.255 area 2
+ network 192.168.8.0 0.0.0.255 area 2
+!
+ip forward-protocol nd
+no ip http server
+no ip http secure-server
+!
+!
+!
+ipv6 router ospf 1
+ router-id 7.7.7.7
+ log-adjacency-changes
+!
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+voice-port 0/1/0
+!
+voice-port 0/1/1
+!
+voice-port 0/2/0
+!
+voice-port 0/2/1
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+line aux 0
+line vty 0 4
+ login
+!
+scheduler allocate 20000 1000
+end

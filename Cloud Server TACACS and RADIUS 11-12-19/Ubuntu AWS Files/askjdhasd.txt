@@ -1,0 +1,167 @@
+!
+! Last configuration change at 14:42:41 UTC Wed Nov 27 2002
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Tacacs
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+aaa new-model
+!
+!
+aaa authentication login default group tacacs+ local
+aaa authorization config-commands
+aaa authorization commands 0 default group tacacs+ none
+aaa authorization commands 15 default group tacacs+ none
+aaa accounting send stop-record authentication failure
+aaa accounting update newinfo periodic 5
+aaa accounting exec default start-stop group tacacs+
+aaa accounting network default start-stop group tacacs+
+!
+!
+!
+!
+!
+aaa session-id common
+memory-size iomem 10
+!
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+voice-card 0
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CISCO2901/K9 sn FTX1520806V
+license accept end user agreement
+license boot module c2900 technology-package securityk9
+license boot module c2900 technology-package uck9
+!
+!
+vtp domain cisco
+vtp mode transparent
+username ethan privilege 15 password 0 ethan
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ ip address dhcp
+ duplex auto
+ speed auto
+ no shut
+!
+interface GigabitEthernet0/1
+ ip address dhcp
+ duplex auto
+ speed auto
+ shut
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+interface GigabitEthernet0/1/0
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+ip tacacs source-interface GigabitEthernet0/0
+!
+!
+!
+tacacs-server host 3.135.213.112
+tacacs-server directed-request
+tacacs-server key testing123
+!
+!
+!
+control-plane
+!
+ !
+ !
+ !
+!
+!
+!
+mgcp profile default
+!
+!
+!
+!
+!
+gatekeeper
+ shutdown
+!
+!
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output lat pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ exec-timeout 0 0
+ transport input all
+!
+scheduler allocate 20000 1000
+!
+end
