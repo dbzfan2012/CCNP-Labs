@@ -1,0 +1,388 @@
+R1#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+O     192.168.1.0/24 [110/2] via 192.168.7.1, 00:27:48, GigabitEthernet0/1
+      192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.2.0/24 is directly connected, GigabitEthernet0/0
+L        192.168.2.1/32 is directly connected, GigabitEthernet0/0
+O IA  192.168.3.0/24 [110/3] via 192.168.2.4, 00:23:41, GigabitEthernet0/0
+O IA  192.168.4.0/24 [110/2] via 192.168.2.3, 00:24:58, GigabitEthernet0/0
+O E2  192.168.5.0/24 [110/20] via 192.168.2.3, 00:24:17, GigabitEthernet0/0
+O IA  192.168.6.0/24 [110/2] via 192.168.2.4, 00:28:03, GigabitEthernet0/0
+      192.168.7.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.7.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.7.2/32 is directly connected, GigabitEthernet0/1
+
+
+
+
+R1#show ipv6 route
+IPv6 Routing Table - default - 10 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, R - RIP, H - NHRP, I1 - ISIS L1
+       I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary, D - EIGRP
+       EX - EIGRP external, ND - ND Default, NDp - ND Prefix, DCE - Destination
+       NDr - Redirect, O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1
+       OE2 - OSPF ext 2, ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+OI  2001:DB8:A::/64 [110/2]
+     via FE80::2, GigabitEthernet0/0
+C   2001:DB8:B::/64 [0/0]
+     via GigabitEthernet0/1, directly connected
+L   2001:DB8:B::2/128 [0/0]
+     via GigabitEthernet0/1, receive
+O   2001:DB8:ACAD:A::/64 [110/2]
+     via FE80::7, GigabitEthernet0/1
+C   2001:DB8:ACAD:B::/64 [0/0]
+     via GigabitEthernet0/0, directly connected
+L   2001:DB8:ACAD:B::1/128 [0/0]
+     via GigabitEthernet0/0, receive
+OI  2001:DB8:ACAD:C::/64 [110/3]
+     via FE80::2, GigabitEthernet0/0
+OI  2001:DB8:ACAD:D::/64 [110/2]
+     via FE80::3, GigabitEthernet0/0
+OE2 2001:DB8:ACAD:E::/64 [110/20]
+     via FE80::3, GigabitEthernet0/0
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+
+
+
+
+R2#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+O IA  192.168.1.0/24 [110/3] via 192.168.2.1, 00:28:34, GigabitEthernet0/0
+      192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.2.0/24 is directly connected, GigabitEthernet0/0
+L        192.168.2.4/32 is directly connected, GigabitEthernet0/0
+O     192.168.3.0/24 [110/2] via 192.168.6.1, 00:24:26, GigabitEthernet0/1
+O IA  192.168.4.0/24 [110/2] via 192.168.2.3, 00:25:44, GigabitEthernet0/0
+O E2  192.168.5.0/24 [110/20] via 192.168.2.3, 00:25:03, GigabitEthernet0/0
+      192.168.6.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.6.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.6.2/32 is directly connected, GigabitEthernet0/1
+O IA  192.168.7.0/24 [110/2] via 192.168.2.1, 00:28:49, GigabitEthernet0/0
+
+
+
+
+
+R2#show ipv6 route
+IPv6 Routing Table - default - 10 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+       H - NHRP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea
+       IS - ISIS summary, D - EIGRP, EX - EIGRP external, NM - NEMO
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2, l - LISP
+C   2001:DB8:A::/64 [0/0]
+     via GigabitEthernet0/1, directly connected
+L   2001:DB8:A::2/128 [0/0]
+     via GigabitEthernet0/1, receive
+OI  2001:DB8:B::/64 [110/2]
+     via FE80::1, GigabitEthernet0/0
+OI  2001:DB8:ACAD:A::/64 [110/3]
+     via FE80::1, GigabitEthernet0/0
+C   2001:DB8:ACAD:B::/64 [0/0]
+     via GigabitEthernet0/0, directly connected
+L   2001:DB8:ACAD:B::4/128 [0/0]
+     via GigabitEthernet0/0, receive
+O   2001:DB8:ACAD:C::/64 [110/2]
+     via FE80::6, GigabitEthernet0/1
+OI  2001:DB8:ACAD:D::/64 [110/2]
+     via FE80::3, GigabitEthernet0/0
+OE2 2001:DB8:ACAD:E::/64 [110/20]
+     via FE80::3, GigabitEthernet0/0
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+
+
+R3#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+
+Gateway of last resort is not set
+
+O IA  192.168.1.0/24 [110/3] via 192.168.2.1, 00:00:09, GigabitEthernet0/0
+      192.168.2.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.2.0/24 is directly connected, GigabitEthernet0/0
+L        192.168.2.3/32 is directly connected, GigabitEthernet0/0
+O IA  192.168.3.0/24 [110/3] via 192.168.2.4, 00:00:09, GigabitEthernet0/0
+      192.168.4.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.4.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.4.1/32 is directly connected, GigabitEthernet0/1
+O IA  192.168.6.0/24 [110/2] via 192.168.2.4, 00:00:09, GigabitEthernet0/0
+O IA  192.168.7.0/24 [110/2] via 192.168.2.1, 00:00:09, GigabitEthernet0/0
+
+
+
+
+R3#show ipv6 route
+IPv6 Routing Table - default - 9 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+       H - NHRP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea
+       IS - ISIS summary, D - EIGRP, EX - EIGRP external, NM - NEMO
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2, l - LISP
+OI  2001:DB8:A::/64 [110/2]
+     via FE80::2, GigabitEthernet0/0
+OI  2001:DB8:B::/64 [110/2]
+     via FE80::1, GigabitEthernet0/0
+OI  2001:DB8:ACAD:A::/64 [110/3]
+     via FE80::1, GigabitEthernet0/0
+C   2001:DB8:ACAD:B::/64 [0/0]
+     via GigabitEthernet0/0, directly connected
+L   2001:DB8:ACAD:B::3/128 [0/0]
+     via GigabitEthernet0/0, receive
+OI  2001:DB8:ACAD:C::/64 [110/3]
+     via FE80::2, GigabitEthernet0/0
+C   2001:DB8:ACAD:D::/64 [0/0]
+     via GigabitEthernet0/1, directly connected
+L   2001:DB8:ACAD:D::1/128 [0/0]
+     via GigabitEthernet0/1, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+
+
+R4#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+S*    0.0.0.0/0 is directly connected, GigabitEthernet0/1
+O IA  192.168.1.0/24 [110/4] via 192.168.4.1, 00:00:02, GigabitEthernet0/1
+O IA  192.168.2.0/24 [110/2] via 192.168.4.1, 00:00:02, GigabitEthernet0/1
+O IA  192.168.3.0/24 [110/4] via 192.168.4.1, 00:00:02, GigabitEthernet0/1
+      192.168.4.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.4.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.4.2/32 is directly connected, GigabitEthernet0/1
+      192.168.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.5.0/24 is directly connected, GigabitEthernet0/0
+L        192.168.5.1/32 is directly connected, GigabitEthernet0/0
+O IA  192.168.6.0/24 [110/3] via 192.168.4.1, 00:00:02, GigabitEthernet0/1
+O IA  192.168.7.0/24 [110/3] via 192.168.4.1, 00:00:02, GigabitEthernet0/1
+
+
+
+R4#show ipv6 route
+IPv6 Routing Table - default - 10 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+       H - NHRP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea
+       IS - ISIS summary, D - EIGRP, EX - EIGRP external, NM - NEMO
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2, l - LISP
+OI  2001:DB8:A::/64 [110/3]
+     via FE80::3, GigabitEthernet0/1
+OI  2001:DB8:B::/64 [110/3]
+     via FE80::3, GigabitEthernet0/1
+OI  2001:DB8:ACAD:A::/64 [110/4]
+     via FE80::3, GigabitEthernet0/1
+OI  2001:DB8:ACAD:B::/64 [110/2]
+     via FE80::3, GigabitEthernet0/1
+OI  2001:DB8:ACAD:C::/64 [110/4]
+     via FE80::3, GigabitEthernet0/1
+C   2001:DB8:ACAD:D::/64 [0/0]
+     via GigabitEthernet0/1, directly connected
+L   2001:DB8:ACAD:D::2/128 [0/0]
+     via GigabitEthernet0/1, receive
+C   2001:DB8:ACAD:E::/64 [0/0]
+     via GigabitEthernet0/0, directly connected
+L   2001:DB8:ACAD:E::1/128 [0/0]
+     via GigabitEthernet0/0, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+
+R5#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+S*    0.0.0.0/0 is directly connected, GigabitEthernet0/1
+      192.168.4.0/32 is subnetted, 1 subnets
+S        192.168.4.2 [1/0] via 192.168.5.1
+      192.168.5.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.5.0/24 is directly connected, GigabitEthernet0/1
+L        192.168.5.2/32 is directly connected, GigabitEthernet0/1
+
+
+
+R5#show ipv6 route
+IPv6 Routing Table - default - 9 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+       H - NHRP, I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea
+       IS - ISIS summary, D - EIGRP, EX - EIGRP external, NM - NEMO
+       ND - ND Default, NDp - ND Prefix, DCE - Destination, NDr - Redirect
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2, l - LISP
+EX  2001:DB8:A::/64 [170/25602816]
+     via FE80::4, GigabitEthernet0/1
+EX  2001:DB8:B::/64 [170/25602816]
+     via FE80::4, GigabitEthernet0/1
+EX  2001:DB8:ACAD:A::/64 [170/25602816]
+     via FE80::4, GigabitEthernet0/1
+EX  2001:DB8:ACAD:B::/64 [170/25602816]
+     via FE80::4, GigabitEthernet0/1
+EX  2001:DB8:ACAD:C::/64 [170/25602816]
+     via FE80::4, GigabitEthernet0/1
+EX  2001:DB8:ACAD:D::/64 [170/25602816]
+     via FE80::4, GigabitEthernet0/1
+C   2001:DB8:ACAD:E::/64 [0/0]
+     via GigabitEthernet0/1, directly connected
+L   2001:DB8:ACAD:E::2/128 [0/0]
+     via GigabitEthernet0/1, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+
+
+
+
+R6#show ip route
+Codes: L - local, C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route, H - NHRP, l - LISP
+       + - replicated route, % - next hop override
+
+Gateway of last resort is 192.168.6.2 to network 0.0.0.0
+
+O*IA  0.0.0.0/0 [110/2] via 192.168.6.2, 00:26:08, FastEthernet0/1
+      192.168.3.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.3.0/24 is directly connected, FastEthernet0/0
+L        192.168.3.2/32 is directly connected, FastEthernet0/0
+      192.168.6.0/24 is variably subnetted, 2 subnets, 2 masks
+C        192.168.6.0/24 is directly connected, FastEthernet0/1
+L        192.168.6.1/32 is directly connected, FastEthernet0/1
+
+
+
+R6#show ipv6 route
+IPv6 Routing Table - default - 6 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, HA - Home Agent, MR - Mobile Router, R - RIP
+       I1 - ISIS L1, I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary
+       D - EIGRP, EX - EIGRP external, NM - NEMO, ND - Neighbor Discovery
+       l - LISP
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+OI  ::/0 [110/2]
+     via FE80::2, FastEthernet0/1
+C   2001:DB8:A::/64 [0/0]
+     via FastEthernet0/1, directly connected
+L   2001:DB8:A::1/128 [0/0]
+     via FastEthernet0/1, receive
+C   2001:DB8:ACAD:C::/64 [0/0]
+     via FastEthernet0/0, directly connected
+L   2001:DB8:ACAD:C::2/128 [0/0]
+     via FastEthernet0/0, receive
+L   FF00::/8 [0/0]
+     via Null0, receive
+
+
+
+
+
+
+
+R7#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is 192.168.7.2 to network 0.0.0.0
+
+O IA 192.168.4.0/24 [110/3] via 192.168.7.2, 00:23:57, FastEthernet0/1
+O IA 192.168.6.0/24 [110/3] via 192.168.7.2, 00:26:53, FastEthernet0/1
+C    192.168.7.0/24 is directly connected, FastEthernet0/1
+C    192.168.1.0/24 is directly connected, FastEthernet0/0
+O IA 192.168.2.0/24 [110/2] via 192.168.7.2, 00:26:53, FastEthernet0/1
+O IA 192.168.3.0/24 [110/4] via 192.168.7.2, 00:22:40, FastEthernet0/1
+O*IA 0.0.0.0/0 [110/2] via 192.168.7.2, 00:26:53, FastEthernet0/1
+
+
+
+
+R7#show ipv6 route
+IPv6 Routing Table - Default - 10 entries
+Codes: C - Connected, L - Local, S - Static, U - Per-user Static route
+       B - BGP, M - MIPv6, R - RIP, I1 - ISIS L1
+       I2 - ISIS L2, IA - ISIS interarea, IS - ISIS summary, D - EIGRP
+       EX - EIGRP external
+       O - OSPF Intra, OI - OSPF Inter, OE1 - OSPF ext 1, OE2 - OSPF ext 2
+       ON1 - OSPF NSSA ext 1, ON2 - OSPF NSSA ext 2
+OI  ::/0 [110/2]
+     via FE80::1, FastEthernet0/1
+OI  2001:DB8:A::/64 [110/3]
+     via FE80::1, FastEthernet0/1
+C   2001:DB8:B::/64 [0/0]
+     via FastEthernet0/1, directly connected
+L   2001:DB8:B::1/128 [0/0]
+     via FastEthernet0/1, receive
+C   2001:DB8:ACAD:A::/64 [0/0]
+     via FastEthernet0/0, directly connected
+L   2001:DB8:ACAD:A::2/128 [0/0]
+     via FastEthernet0/0, receive
+OI  2001:DB8:ACAD:B::/64 [110/2]
+     via FE80::1, FastEthernet0/1
+OI  2001:DB8:ACAD:C::/64 [110/4]
+     via FE80::1, FastEthernet0/1
+OI  2001:DB8:ACAD:D::/64 [110/3]
+     via FE80::1, FastEthernet0/1
+L   FF00::/8 [0/0]
+     via Null0, receive
+

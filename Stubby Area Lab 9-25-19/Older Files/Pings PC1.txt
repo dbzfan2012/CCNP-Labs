@@ -1,0 +1,58 @@
+C:\Users\cisco>ping 192.168.3.2
+
+Pinging 192.168.3.2 with 32 bytes of data:
+Reply from 192.168.3.2: bytes=32 time=1ms TTL=252
+Reply from 192.168.3.2: bytes=32 time=1ms TTL=252
+Reply from 192.168.3.2: bytes=32 time=1ms TTL=252
+Reply from 192.168.3.2: bytes=32 time=1ms TTL=252
+
+Ping statistics for 192.168.3.2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+
+C:\Users\cisco>ping 192.168.5.2
+
+Pinging 192.168.5.2 with 32 bytes of data:
+Reply from 192.168.5.2: bytes=32 time=1ms TTL=251
+Reply from 192.168.5.2: bytes=32 time=1ms TTL=251
+Reply from 192.168.5.2: bytes=32 time=1ms TTL=251
+Reply from 192.168.5.2: bytes=32 time=1ms TTL=251
+
+Ping statistics for 192.168.5.2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+
+
+
+C:\Users\cisco>ping 2001:db8:acad:c::2
+
+Pinging 2001:db8:acad:c::2 with 32 bytes of data:
+Reply from 2001:db8:acad:c::2: time=1ms
+Reply from 2001:db8:acad:c::2: time=1ms
+Reply from 2001:db8:acad:c::2: time=1ms
+Reply from 2001:db8:acad:c::2: time=1ms
+
+Ping statistics for 2001:db8:acad:c::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms
+
+
+
+
+C:\Users\cisco>ping 2001:db8:acad:e::2
+
+Pinging 2001:db8:acad:e::2 with 32 bytes of data:
+Reply from 2001:db8:acad:e::2: time=1ms
+Reply from 2001:db8:acad:e::2: time=1ms
+Reply from 2001:db8:acad:e::2: time=1ms
+Reply from 2001:db8:acad:e::2: time=1ms
+
+Ping statistics for 2001:db8:acad:e::2:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 1ms, Maximum = 1ms, Average = 1ms

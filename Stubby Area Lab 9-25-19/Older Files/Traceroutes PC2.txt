@@ -1,0 +1,35 @@
+C:\Users\cisco>tracert 2001:db8:acad:e::2
+
+Tracing route to 2001:db8:acad:e::2 over a maximum of 30 hops
+
+  1    <1 ms    <1 ms    <1 ms  2001:db8:acad:c::2
+  2    <1 ms    <1 ms    <1 ms  2001:db8:a::2
+  3     1 ms    <1 ms    <1 ms  2001:db8:acad:b::3
+  4     1 ms     1 ms     1 ms  2001:db8:acad:d::2
+  5     1 ms     1 ms     1 ms  2001:db8:acad:e::2
+
+Trace complete.
+
+C:\Users\cisco>tracert 192.168.1.1
+
+Tracing route to 192.168.1.1 over a maximum of 30 hops
+
+  1     1 ms    <1 ms    <1 ms  192.168.3.2
+  2    <1 ms    <1 ms    <1 ms  192.168.6.2
+  3     1 ms    <1 ms    <1 ms  192.168.2.1
+  4     1 ms     1 ms     1 ms  192.168.7.1
+  5     1 ms     1 ms     1 ms  192.168.1.1
+
+Trace complete.
+
+C:\Users\cisco>tracert 2001:db8:acad:a::1
+
+Tracing route to 2001:db8:acad:a::1 over a maximum of 30 hops
+
+  1    <1 ms    <1 ms    <1 ms  2001:db8:acad:c::2
+  2    <1 ms    <1 ms    <1 ms  2001:db8:a::2
+  3     1 ms    <1 ms    <1 ms  2001:db8:acad:b::1
+  4     1 ms     1 ms     1 ms  2001:db8:b::1
+  5     1 ms     1 ms     1 ms  2001:db8:acad:a::1
+
+Trace complete.
